@@ -47,7 +47,7 @@ public class Buy {
 
 
 
-    public String toString(String product) {
+    public String toStringฺBuy(String product) {
         return product+" buy "+amount+" pieces";
     }
     
