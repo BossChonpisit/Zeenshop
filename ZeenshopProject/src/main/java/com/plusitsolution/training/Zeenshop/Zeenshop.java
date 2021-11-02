@@ -17,14 +17,14 @@ public class Zeenshop {
     public static void main(String[] args) {
 
         addProduct(new Product(Productname.MILO, 20, 30)); // ใส่ชื่อสินค้า, ราคา , stock
-        addProduct(new Product(Productname.MAGGI, 50, 10));
+        addProduct(new Product(Productname.MAGGI, 50, 10)); 
         addProduct(new Product(Productname.NESLE, 30, 5));
         addProduct(new Product(Productname.KOKO, 40, 20));
         listallProduct();
         
         Map<String, Integer> TOBUY_MAP = new HashMap<>();
         TOBUY_MAP.put("P1", 10); // buy(productId, amount)
-        TOBUY_MAP.put("P2", 5);
+        TOBUY_MAP.put("P2", 3);
 
         System.out.println("\n------ Buy this Product ------");
         for (Entry<String, Integer> entry : TOBUY_MAP.entrySet()) {
@@ -73,7 +73,7 @@ public class Zeenshop {
         }
         switch (product.getName()) {
         case MILO:
-            fee += product.getPrice();
+            fee += 20;
             break;
         case MAGGI:
             fee += 50;
@@ -97,7 +97,7 @@ public class Zeenshop {
 
     public static void checkbill(String buyID){
         Buy buy = buy_map.get(buyID);
-        System.out.println(buy_map.get(buyID).toStringฺBuy(PRODUCT_MAP.get(buy.getProductID()).getName().toString())+", total price : "+calculateFee(buy).toString());
+        System.out.println(buy_map.get(buyID).toStringฺBuy(PRODUCT_MAP.get(buy.getProductID()).getName().toString())+", total price : "+calculateFee(buy).toString()+" baht");
     }
 
     public static void historyBuying(){
@@ -107,11 +107,11 @@ public class Zeenshop {
         for (Entry<String, Buy> entry : buy_map.entrySet()) {
             Product product = PRODUCT_MAP.get(entry.getValue().getProductID());
             System.out.println(entry.getValue().getProductID()+" "+product.getName().toString()+ 
-            " amount "+entry.getValue().getAmount().toString()+" price "+ product.getPrice().toString());
-            totalPrice += product.getPrice();
+            " amount "+entry.getValue().getAmount().toString()+" , price : "+ product.getPrice().toString()+" baht per piece");
+            totalPrice += (product.getPrice()*entry.getValue().getAmount());
             
         }
-        System.out.println("Total price : "+totalPrice);
+        System.out.println("Total price : "+totalPrice+" baht");
     }
 
 }

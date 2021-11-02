@@ -36,8 +36,4 @@ public class Historybuying {
         this.price = price;
     }
 
-    
-    
-
-    
 }
