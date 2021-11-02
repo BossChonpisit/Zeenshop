@@ -24,7 +24,7 @@ public class Zeenshop {
         
         Map<String, Integer> TOBUY_MAP = new HashMap<>();
         TOBUY_MAP.put("P1", 10); // buy(productId, amount)
-        TOBUY_MAP.put("P2", 3);
+        TOBUY_MAP.put("P2", 5);
 
         System.out.println("\n------ Buy this Product ------");
         for (Entry<String, Integer> entry : TOBUY_MAP.entrySet()) {
@@ -50,7 +50,7 @@ public class Zeenshop {
             throw new RuntimeException(productID + " : ไม่พบสินค้าที่ท่านต้องการ");
         }
         Buy buy = new Buy(productID, amount);
-        String buyID = "B" + ++buycount;
+        String buyID = "B" + ++buycount;    
         buy_map.put(buyID, buy);
         checkbill(buyID);
     }

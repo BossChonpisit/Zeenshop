@@ -6,6 +6,16 @@ public class Product {
     private Integer stock;
 
     public Product(Productname name, Integer price, Integer stock) {
+        // for (Productname productname : Productname.values()) {
+        //     if (name != productname.name()) {
+                
+        //     }
+        // }
+        if (stock <= 0 & stock == null) {
+            throw new RuntimeException(" กรอกจำนวน stock ให้ถูกต้อง ");
+        }else if (price <= 0 & stock == null) {
+            throw new RuntimeException(" กรอกราคาสินค้าให้ถูกต้อง");
+        }
         this.name = name;
         this.price = price;
         this.stock = stock;
